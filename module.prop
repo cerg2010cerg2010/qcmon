@@ -1,7 +1,7 @@
-id=template
-name=Template Module
+id=qcmon
+name=QCMon
 version=v1
 versionCode=1
-author=topjohnwu
-description=A short description
+author=cerg2010cerg2010
+description=Scripts for switching to monitor mode on devices with Qualcomm drivers
 minMagisk=17000

@@ -41,7 +41,7 @@ LATESTARTSERVICE=false
 
 print_modname() {
   ui_print "*******************************"
-  ui_print "     Magisk Module Template    "
+  ui_print "     Monitor mode for Qcom     "
   ui_print "*******************************"
 }
 
@@ -63,6 +63,7 @@ REPLACE="
 # Construct your own list here, it will override the example above
 # !DO NOT! remove this if you don't need to replace anything, leave it empty as it is now
 REPLACE="
+/system/xbin
 "
 
 ##########################################################################################
@@ -85,6 +86,10 @@ set_permissions() {
 
   # The following is default permissions, DO NOT remove
   set_perm_recursive  $MODPATH  0  0  0755  0644
+  # TODO: use proper contexts?
+  set_perm $MODPATH/system/xbin/iwpriv 0 0 0755
+  set_perm $MODPATH/system/xbin/monen 0 0 0755
+  set_perm $MODPATH/system/xbin/mondis 0 0 0755
 }
 
 ##########################################################################################
