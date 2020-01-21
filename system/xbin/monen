@@ -40,6 +40,10 @@ echo 4 > /sys/module/wlan/parameters/con_mode
 # Wait for driver to reload
 sleep 2
 iwpriv wlan0 MonitorModeConf $CONF
-# Go go go
 iwpriv wlan0 monitor 1
+
+# Stop lowi-server so it won't crash your kernel
+killall -q -SIGSTOP lowi-server || true
+
+# Go go go
 ip link set wlan0 up
