@@ -21,6 +21,11 @@ if [ ! -e "/sys/module/wlan/parameters/con_mode" ]; then
 	exit 1
 fi
 
+if ! which iwpriv > /dev/null ; then
+	echo "iwpriv command not found"
+	exit 1
+fi
+
 if [ "$#" -ne "0" ]; then
 	if [ "$#" -eq "5" ]; then
 		CONF=$@

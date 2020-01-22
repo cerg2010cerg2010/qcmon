@@ -9,6 +9,11 @@ if [ ! -e "/sys/module/wlan/parameters/con_mode" ]; then
 	exit 1
 fi
 
+if ! which iwpriv > /dev/null ; then
+        echo "iwpriv command not found"
+        exit 1
+fi
+
 # Shutdown gracefully
 iwpriv wlan0 monitor 0
 # Disable the interface
